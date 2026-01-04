@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SkillFlow | Cyber Learning Grid</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --surface:#0b1020;
+  --neon:#22d3ee;
+  --acid:#a3e635;
+  --warn:#facc15;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+  --glow:rgba(34,211,238,.45);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+html{scroll-behavior:smooth;}
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+}
+
+/* ===== NAVBAR ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(5,7,13,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  color:var(--neon);
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.menu-btn{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  cursor:pointer;
+  color:var(--neon);
+  background:linear-gradient(135deg,#020617,#0b1020);
+  box-shadow:0 0 15px rgba(34,211,238,.25);
+  transition:.3s;
+}
+.menu-btn:hover{
+  box-shadow:0 0 30px rgba(34,211,238,.6);
+}
+
+.menu{
+  position:absolute;
+  top:72px;
+  right:20px;
+  width:220px;
+  background:linear-gradient(135deg,#020617,#0b1020);
+  border:1px solid var(--border);
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-10px) scale(.96);
+  transition:.35s ease;
+  box-shadow:0 0 40px rgba(34,211,238,.35);
+}
+.menu.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:none;
+}
+.menu a{
+  padding:15px 18px;
+  text-decoration:none;
+  color:var(--text);
+  border-bottom:1px solid var(--border);
+  font-size:14px;
+}
+.menu a:hover{
+  background:#020617;
+  color:var(--neon);
+}
+.menu a:last-child{border-bottom:none;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:90vh;
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.hero h1{
+  font-size:48px;
+  line-height:1.1;
+}
+.hero h1 span{
+  color:var(--neon);
+  text-shadow:0 0 25px var(--glow);
+}
+.hero p{
+  margin:22px 0;
+  color:var(--muted);
+  font-size:16px;
+}
+.btn{
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--neon),var(--acid));
+  color:#020617;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 35px rgba(34,211,238,.35);
+}
+.note{
+  margin-top:12px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.cyber-box{
+  height:320px;
+  border-radius:20px;
+  background:
+    repeating-linear-gradient(90deg,transparent,transparent 10px,rgba(34,211,238,.08) 10px,rgba(34,211,238,.08) 11px),
+    linear-gradient(135deg,#020617,#0b1020);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--neon);
+  font-size:70px;
+  box-shadow:0 0 40px rgba(34,211,238,.25);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 20px;
+}
+.title{
+  text-align:center;
+  margin-bottom:60px;
+}
+.title h2{font-size:34px;}
+.title p{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+  transition:.35s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 30px rgba(34,211,238,.25);
+}
+.card h3{
+  margin-bottom:10px;
+  color:var(--neon);
+}
+
+.flow span{
+  color:var(--acid);
+  font-size:13px;
+  font-weight:700;
+}
+
+/* ===== CTA ===== */
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,#020617,#0b1020);
+  border:1px solid var(--border);
+  border-radius:30px;
+  padding:80px 20px;
+  box-shadow:0 0 50px rgba(163,230,53,.15);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* ===== ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">SKILLFLOW_</div>
+    <div class="menu-btn" id="menuBtn">⋮</div>
+
+    <div class="menu" id="menu">
+      <a href="#home">Home</a>
+      <a href="training.html">Training</a>
+      <a href="practice.html">Practice</a>
+      <a href="mission.html">Missions</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="reveal">
+    <h1>Learn Coding.<br><span>Then Execute Missions.</span></h1>
+    <p>
+      SkillFlow follows a structured system.<br>
+      Choose a training path, build skills through practice,  
+      and unlock missions step by step.
+    </p>
+    <a href="training.html" class="btn">START TRAINING</a>
+    <div class="note">Training is required before missions</div>
+  </div>
+
+  <div class="cyber-box reveal">⌨️</div>
+</div>
+
+<!-- FLOW -->
+<section>
+  <div class="title reveal">
+    <h2>Learning Flow</h2>
+    <p>No shortcuts. Only real skills.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card reveal flow">
+      <span>STEP 01</span>
+      <h3>Training</h3>
+      <p>Learn core concepts with deep practical clarity.</p>
+    </div>
+    <div class="card reveal flow">
+      <span>STEP 02</span>
+      <h3>Practice</h3>
+      <p>Hands-on exercises to build confidence.</p>
+    </div>
+    <div class="card reveal flow">
+      <span>STEP 03</span>
+      <h3>Missions</h3>
+      <p>Real-world challenges with XP & progression.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta reveal">
+    <h2>Enter the Cyber Learning Grid</h2>
+    <p>Build skills. Not certificates.</p><br>
+    <a href="training.html" class="btn">JOIN SKILLFLOW</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 SkillFlow — Build Skills. Not Certificates.
+</footer>
+
+<script>
+/* Menu logic */
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", e=>{
+  e.stopPropagation();
+  menu.classList.toggle("active");
+});
+
+menu.addEventListener("click", e=>e.stopPropagation());
+
+document.addEventListener("click", ()=>{
+  menu.classList.remove("active");
+});
+
+menu.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    menu.classList.remove("active");
+  });
+});
+
+/* Scroll animation */
+const items=document.querySelectorAll('.reveal');
+const onScroll=()=>items.forEach(i=>{
+  if(i.getBoundingClientRect().top < innerHeight-120)
+    i.classList.add('active');
+});
+window.addEventListener('scroll',onScroll);
+onScroll();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mission 1 | HTML Resume Structure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --panel:#0b1020;
+  --neon:#22d3ee;
+  --acid:#a3e635;
+  --danger:#f87171;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  position:sticky;top:0;
+  background:rgba(5,7,13,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  max-width:1100px;margin:auto;
+  padding:16px 20px;
+  display:flex;justify-content:space-between;
+}
+.logo{color:var(--neon);font-weight:700;}
+
+/* LAYOUT */
+.wrapper{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:50px;
+}
+.title h1{font-size:34px;}
+.title p{color:var(--muted);margin-top:10px;}
+
+.section{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+  margin-bottom:30px;
+}
+
+.section h2{color:var(--neon);margin-bottom:12px;}
+.section p, li{color:var(--muted);font-size:14px;line-height:1.7;}
+
+.code{
+  background:#020617;
+  border-radius:14px;
+  padding:20px;
+  margin-top:14px;
+  font-size:13px;
+  color:#67e8f9;
+  overflow:auto;
+}
+
+textarea{
+  width:100%;
+  min-height:240px;
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin-top:14px;
+  color:#e5e7eb;
+  font-size:13px;
+}
+
+.complete{
+  display:block;
+  margin:60px auto 0;
+  padding:16px 44px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--neon),var(--acid));
+  color:#020617;
+  font-weight:700;
+  cursor:pointer;
+  border:none;
+}
+
+/* LOCK SCREEN */
+.lock{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+.lock-box{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:50px 30px;
+  max-width:420px;
+}
+.lock-box h1{color:var(--danger);}
+.lock-box p{color:var(--muted);margin-top:12px;}
+.lock-box a{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 30px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--neon),var(--acid));
+  color:#020617;
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  margin-top:80px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  padding:30px 20px;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+/* ===== PRACTICE LOCK CHECK ===== */
+if(!localStorage.getItem("htmlPractice1")){
+  document.body.innerHTML = `
+    <div class="lock">
+      <div class="lock-box">
+        <h1>Mission Locked 🔒</h1>
+        <p>
+          Complete HTML Practice before attempting this mission.
+        </p>
+        <a href="html-practice-1.html">GO TO PRACTICE</a>
+      </div>
+    </div>
+  `;
+}
+</script>
+
+<header>
+  <div class="nav">
+    <div class="logo">SKILLFLOW_</div>
+    <div>MISSION 1</div>
+  </div>
+</header>
+
+<div class="wrapper">
+
+<div class="title">
+  <h1>Mission 1: HTML Resume Structure</h1>
+  <p>Now prove your HTML knowledge without help.</p>
+</div>
+
+<div class="section">
+  <h2>🎯 Objective</h2>
+  <p>
+    Build a clean resume using only semantic HTML.
+    This is an evaluation mission.
+  </p>
+</div>
+
+<div class="section">
+  <h2>📋 Rules</h2>
+  <ul>
+    <li>No CSS</li>
+    <li>No JavaScript</li>
+    <li>Proper HTML structure required</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>✍️ Write Your HTML</h2>
+  <textarea id="codeInput" placeholder="<!DOCTYPE html>"></textarea>
+</div>
+
+<button class="complete" onclick="completeMission()">
+  MARK MISSION COMPLETE
+</button>
+
+</div>
+
+<footer>
+  © 2026 SkillFlow — Practice Before Mission
+</footer>
+
+<script>
+function completeMission(){
+  const code = document.getElementById("codeInput").value.trim().toLowerCase();
+
+  if(code.length < 80){
+    alert("❌ Write proper HTML code before completing the mission.");
+    return;
+  }
+
+  const required = ["<html", "<body", "<header", "<section", "<h1"];
+  const missing = required.filter(tag => !code.includes(tag));
+
+  if(missing.length){
+    alert("❌ Missing required HTML structure.");
+    return;
+  }
+
+  localStorage.setItem("htmlMission1","done");
+  alert("✅ Mission 1 Completed. Mission 2 Unlocked.");
+}
+</script>
+
+</body>
+</html>

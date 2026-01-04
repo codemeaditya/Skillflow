@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mission 3 | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --panel:#0b1020;
+  --neon:#22d3ee;
+  --acid:#a3e635;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+}
+
+.container{max-width:900px;margin:auto;padding:60px 20px;}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+}
+
+h1{color:var(--neon);margin-bottom:10px;}
+p{color:var(--muted);line-height:1.7;font-size:14px;}
+
+ul{margin-left:18px;margin-top:10px;color:var(--muted);font-size:14px;}
+
+textarea{
+  width:100%;
+  min-height:260px;
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  color:#e5e7eb;
+  margin-top:18px;
+  font-size:13px;
+}
+
+button{
+  margin-top:30px;
+  padding:14px 38px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--neon),var(--acid));
+  color:#020617;
+}
+
+.status{margin-top:18px;font-size:14px;}
+.lock{text-align:center;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card" id="missionContainer"></div>
+</div>
+
+<script>
+const practiceDone = localStorage.getItem("htmlPractice3");
+const container = document.getElementById("missionContainer");
+
+if(practiceDone !== "completed"){
+  container.innerHTML = `
+    <div class="lock">
+      <h1>Mission Locked</h1>
+      <p>Please complete <strong>HTML Practice 3</strong> to unlock this mission.</p>
+    </div>
+  `;
+}else{
+  container.innerHTML = `
+    <h1>Mission 3: Contact Form</h1>
+    <p>Build a valid contact form using semantic HTML.</p>
+
+    <ul>
+      <li>A form element</li>
+      <li>Name and email input fields</li>
+      <li>A submit button</li>
+    </ul>
+
+    <textarea id="missionCode" placeholder="Write your HTML code here..."></textarea>
+
+    <button onclick="validateMission()">Mark Mission Complete</button>
+    <div class="status" id="status"></div>
+  `;
+}
+
+function validateMission(){
+  const code = document.getElementById("missionCode").value.toLowerCase();
+
+  const hasForm = code.includes("<form");
+  const hasName = code.includes("type=\"text\"") || code.includes("name=");
+  const hasEmail = code.includes("type=\"email\"");
+  const hasSubmit = code.includes("type=\"submit\"") || code.includes("<button");
+
+  if(hasForm && hasName && hasEmail && hasSubmit){
+    localStorage.setItem("mission3","completed");
+    document.getElementById("status").innerText =
+      "🏆 Mission completed successfully. Level up unlocked.";
+  }else{
+    document.getElementById("status").innerText =
+      "❌ Mission requirements not met. Please review the checklist.";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Practice 4 | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --panel:#0b1020;
+  --neon:#22d3ee;
+  --acid:#a3e635;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'JetBrains Mono', monospace;
+}
+
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+}
+
+h1{
+  color:var(--neon);
+  margin-bottom:10px;
+}
+
+p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+}
+
+ul{
+  margin-left:18px;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+textarea{
+  width:100%;
+  min-height:260px;
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  color:#e5e7eb;
+  margin-top:18px;
+  font-size:13px;
+}
+
+button{
+  margin-top:30px;
+  padding:14px 38px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--neon),var(--acid));
+  color:#020617;
+}
+
+.status{
+  margin-top:18px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+    <h1>HTML Practice 4</h1>
+    <p>
+      This practice focuses on tables and media elements.
+      Completion is required to unlock Mission 4.
+    </p>
+
+    <p>Create HTML that includes:</p>
+    <ul>
+      <li>A table element (<code>&lt;table&gt;</code>)</li>
+      <li>At least one table row and two columns</li>
+      <li>An image or video element</li>
+    </ul>
+
+    <textarea id="practiceCode" placeholder="Write your HTML code here..."></textarea>
+
+    <button onclick="validatePractice()">Mark Practice Complete</button>
+    <div class="status" id="status"></div>
+  </div>
+</div>
+
+<script>
+function validatePractice(){
+  const code = document.getElementById("practiceCode").value.toLowerCase();
+
+  const hasTable = code.includes("<table");
+  const hasRow = code.includes("<tr");
+  const hasCell = code.includes("<td") || code.includes("<th");
+  const hasMedia = code.includes("<img") || code.includes("<video");
+
+  if(hasTable && hasRow && hasCell && hasMedia){
+    localStorage.setItem("htmlPractice4","completed");
+    document.getElementById("status").innerText =
+      "✅ Practice completed successfully. Mission 4 is now unlocked.";
+  }else{
+    document.getElementById("status").innerText =
+      "❌ Validation failed. Please include a table and a media element.";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Missions | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --card:#0b1020;
+  --neon:#22d3ee;
+  --danger:#f43f5e;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:#fff;padding:60px 20px;
+}
+h1{text-align:center;margin-bottom:50px;}
+.grid{
+  max-width:1100px;margin:auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  cursor:pointer;
+  position:relative;
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 40px rgba(34,211,238,.2);
+}
+.card p{color:var(--muted);font-size:14px;}
+.locked{opacity:.6;}
+.lock-overlay{
+  position:absolute;inset:0;
+  background:rgba(5,7,13,.85);
+  display:flex;align-items:center;justify-content:center;
+  border-radius:18px;opacity:0;transition:.3s;
+}
+.locked:hover .lock-overlay{opacity:1;}
+.lock-box{text-align:center;}
+.lock-box span{font-size:42px;color:var(--danger);}
+.lock-box p{font-size:13px;color:var(--muted);}
+</style>
+</head>
+
+<body>
+
+<h1>HTML Missions</h1>
+
+<div class="grid">
+  <div class="card" onclick="openPage('html-mission-4.html')">
+    <h3>Mission 4</h3>
+    <p>Advanced structure & forms</p>
+  </div>
+
+  <div class="card locked" id="practice5">
+    <h3>Practice 5</h3>
+    <p>Complex layouts & validation</p>
+    <div class="lock-overlay">
+      <div class="lock-box">
+        <span>🔒</span>
+        <p>Complete Mission 4</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card locked" id="mission5">
+    <h3>Mission 5</h3>
+    <p>Real-world HTML challenge</p>
+    <div class="lock-overlay">
+      <div class="lock-box">
+        <span>🔒</span>
+        <p>Complete Practice 5</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPage(p){location.href=p;}
+
+if(localStorage.getItem("mission_4")==="done"){
+  const p=document.getElementById("practice5");
+  p.classList.remove("locked");
+  p.onclick=()=>openPage("practice-5.html");
+}
+if(localStorage.getItem("practice_5")==="done"){
+  const m=document.getElementById("mission5");
+  m.classList.remove("locked");
+  m.onclick=()=>openPage("html-mission-5.html");
+}
+</script>
+
+</body>
+</html>

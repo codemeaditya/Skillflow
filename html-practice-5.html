@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Practice 5 | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script>
+if(localStorage.getItem("mission_4")!=="done"){
+  location.href="html-missions.html";
+}
+</script>
+
+<style>
+body{
+  background:#05070d;color:#e5e7eb;
+  font-family:'JetBrains Mono', monospace;
+  padding:80px 20px;text-align:center;
+}
+button{
+  margin-top:40px;
+  padding:14px 32px;
+  border-radius:999px;
+  border:none;
+  background:#a3e635;
+  font-weight:700;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>HTML Practice 5</h1>
+<p>Complex layouts, validation & semantic mastery.</p>
+
+<button onclick="complete()">Complete Practice</button>
+
+<script>
+function complete(){
+  localStorage.setItem("practice_5","done");
+  setTimeout(()=>location.href="html-mission-5.html",800);
+}
+</script>
+
+</body>
+</html>

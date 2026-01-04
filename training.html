@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Training | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --surface:#0b1020;
+  --neon:#22d3ee;
+  --acid:#a3e635;
+  --warn:#facc15;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+  --glow:rgba(34,211,238,.45);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+}
+
+/* ===== NAV ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(5,7,13,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  color:var(--neon);
+  font-weight:700;
+}
+
+/* ===== PAGE ===== */
+.wrapper{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+.title{
+  text-align:center;
+  margin-bottom:60px;
+}
+.title h1{
+  font-size:42px;
+}
+.title p{
+  margin-top:14px;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* ===== COURSES ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.course{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:30px;
+  position:relative;
+  transition:.35s;
+}
+.course:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 35px rgba(34,211,238,.25);
+}
+
+.course h3{
+  color:var(--neon);
+  margin-bottom:8px;
+}
+.course p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.meta{
+  margin-top:16px;
+  font-size:13px;
+  color:var(--acid);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:22px;
+  padding:12px 26px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--neon),var(--acid));
+  color:#020617;
+  font-weight:700;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* ===== LOCKED ===== */
+.locked{
+  opacity:.55;
+}
+.locked::after{
+  content:"LOCKED";
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:#020617;
+  border:1px solid var(--border);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:11px;
+  color:var(--warn);
+}
+
+/* ===== UPCOMING ===== */
+.upcoming::after{
+  content:"COMING SOON";
+  position:absolute;
+  top:16px;
+  right:16px;
+  background:#020617;
+  border:1px solid var(--border);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:11px;
+  color:var(--warn);
+}
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  margin-top:80px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">SKILLFLOW_</div>
+  </div>
+</header>
+
+<div class="wrapper">
+
+  <div class="title">
+    <h1>Training Paths</h1>
+    <p>Select a training path. Complete training to unlock practice and missions.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- HTML -->
+    <div class="course">
+      <h3>HTML Core</h3>
+      <p>
+        Learn how the web is structured.  
+        Covers semantic HTML, forms, layouts and real-world usage.
+      </p>
+      <div class="meta">Beginner · Required</div>
+      <a href="html-core-training.html" class="btn">Start Training</a>
+    </div>
+
+    <!-- CSS -->
+    <div class="course locked">
+      <h3>CSS Foundations</h3>
+      <p>
+        Styling, layouts, responsiveness and modern UI techniques.
+      </p>
+      <div class="meta">Beginner · Locked</div>
+      <span class="btn">Complete HTML First</span>
+    </div>
+
+    <!-- JS -->
+    <div class="course upcoming">
+      <h3>JavaScript Core</h3>
+      <p>
+        Programming fundamentals, DOM manipulation and logic building.
+      </p>
+      <div class="meta">Intermediate · Upcoming</div>
+      <span class="btn">Coming Soon</span>
+    </div>
+
+    <!-- FULL STACK -->
+    <div class="course upcoming">
+      <h3>Full Stack Path</h3>
+      <p>
+        Frontend + Backend. Real projects and production mindset.
+      </p>
+      <div class="meta">Advanced · Upcoming</div>
+      <span class="btn">Coming Soon</span>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 SkillFlow — Train. Practice. Execute.
+</footer>
+
+</body>
+</html>

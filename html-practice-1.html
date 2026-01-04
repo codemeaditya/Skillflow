@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Practice 1 | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#05070d;
+  --card:#0b1020;
+  --accent:#22d3ee;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+  padding:40px 20px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+header{
+  margin-bottom:40px;
+}
+
+header h1{
+  color:var(--accent);
+  margin-bottom:6px;
+}
+
+header p{
+  color:var(--muted);
+}
+
+.section{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:24px;
+}
+
+.section h2{
+  margin-bottom:12px;
+  font-size:20px;
+}
+
+.section ul{
+  padding-left:18px;
+}
+
+.section li{
+  margin-bottom:8px;
+  color:var(--muted);
+}
+
+button{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 32px;
+  font-size:16px;
+  border:none;
+  border-radius:10px;
+  background:var(--accent);
+  color:#020617;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>HTML Practice 1</h1>
+    <p>SkillFlow • HTML Core Training</p>
+  </header>
+
+  <div class="section">
+    <h2>What you will practice</h2>
+    <ul>
+      <li>HTML document structure</li>
+      <li>Headings and paragraphs</li>
+      <li>Basic content tags</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Your Practice Tasks</h2>
+    <ul>
+      <li>Create a basic HTML page</li>
+      <li>Add one <code>&lt;h1&gt;</code> heading</li>
+      <li>Add at least one <code>&lt;p&gt;</code> paragraph</li>
+      <li>Use <code>&lt;hr&gt;</code> once</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Rules</h2>
+    <ul>
+      <li>HTML only</li>
+      <li>No CSS</li>
+      <li>No JavaScript</li>
+    </ul>
+  </div>
+
+  <!-- ✅ MISSION 1 LINK -->
+  <button onclick="goToMission()">Complete Practice & Go to Mission 1</button>
+
+</div>
+
+<script>
+function goToMission(){
+  window.location.href = "./html-mission-1.html";
+}
+</script>
+
+</body>
+</html>

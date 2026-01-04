@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Core Training | SkillFlow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070d;
+  --surface:#0b1020;
+  --neon:#22d3ee;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:rgba(34,211,238,.25);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono', monospace;}
+
+body{
+  background:radial-gradient(circle at top,#0b122a,var(--bg));
+  color:var(--text);
+}
+
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(5,7,13,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.logo{color:var(--neon);font-weight:700;}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h1{font-size:36px;margin-bottom:10px;}
+.subtitle{color:var(--muted);margin-bottom:50px;}
+
+.section{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:30px;
+  margin-bottom:40px;
+}
+
+.section h2{color:var(--neon);margin-bottom:12px;}
+.section p, .section li{color:var(--muted);line-height:1.8;}
+.section ul{margin-left:20px;}
+
+.complete-box{text-align:center;margin-top:80px;}
+#completeBtn{
+  padding:14px 36px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--neon),#67e8f9);
+  color:#020617;
+  font-weight:700;
+  opacity:.4;
+  cursor:not-allowed;
+}
+#completeBtn.active{opacity:1;cursor:pointer;}
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">SKILLFLOW_</div>
+    <div>HTML Core Training</div>
+  </nav>
+</header>
+
+<main>
+
+<h1>HTML Core Training</h1>
+<p class="subtitle">
+Complete, practical and industry-grade HTML knowledge before you write real code.
+</p>
+
+<div class="section">
+<h2>1. What HTML Really Is</h2>
+<p>
+HTML is not a programming language. It is a **markup language** used to describe the structure
+and meaning of content on the web. Browsers read HTML and build the DOM (Document Object Model).
+</p>
+</div>
+
+<div class="section">
+<h2>2. HTML Document Anatomy</h2>
+<ul>
+<li><strong>&lt;!DOCTYPE html&gt;</strong> — tells browser to use HTML5</li>
+<li><strong>&lt;html&gt;</strong> — root element</li>
+<li><strong>&lt;head&gt;</strong> — metadata, SEO, fonts, CSS</li>
+<li><strong>&lt;body&gt;</strong> — visible content</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>3. Text & Content Elements</h2>
+<ul>
+<li>Headings: h1 → h6 (SEO importance)</li>
+<li>Paragraphs: p</li>
+<li>Inline text: span, strong, em, mark</li>
+<li>Line breaks vs spacing: br vs CSS</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>4. Links & Navigation</h2>
+<ul>
+<li>a tag with href</li>
+<li>target="_blank"</li>
+<li>internal vs external links</li>
+<li>anchor navigation (#id)</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>5. Images & Media</h2>
+<ul>
+<li>img src, alt (accessibility)</li>
+<li>audio & video tags</li>
+<li>controls, autoplay, muted</li>
+<li>Responsive media basics</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>6. Lists & Tables</h2>
+<ul>
+<li>ul, ol, li</li>
+<li>table, thead, tbody, tr, td, th</li>
+<li>When NOT to use tables</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>7. Forms & Inputs (Very Important)</h2>
+<ul>
+<li>form action & method</li>
+<li>input types: text, email, password, checkbox, radio</li>
+<li>label for accessibility</li>
+<li>required, placeholder, pattern</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>8. Semantic HTML (Industry Standard)</h2>
+<ul>
+<li>header, nav, main, section</li>
+<li>article, aside, footer</li>
+<li>Why div misuse is bad</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>9. SEO Basics with HTML</h2>
+<ul>
+<li>title & meta description</li>
+<li>Proper heading hierarchy</li>
+<li>alt text for images</li>
+<li>Clean semantic markup</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>10. Accessibility (A11y)</h2>
+<ul>
+<li>Screen reader friendly HTML</li>
+<li>Labelled inputs</li>
+<li>aria-label (intro)</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>11. Performance & Best Practices</h2>
+<ul>
+<li>Clean structure before CSS</li>
+<li>Readable indentation</li>
+<li>Avoid inline styles</li>
+<li>HTML validation</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>12. Common Beginner Mistakes</h2>
+<ul>
+<li>Using div everywhere</li>
+<li>Skipping headings</li>
+<li>No alt attributes</li>
+<li>Messy nesting</li>
+</ul>
+</div>
+
+<div class="complete-box" id="end">
+<p>You have completed HTML Core Training.</p>
+<a id="completeBtn">Mark Training Complete</a>
+</div>
+
+</main>
+
+<footer>
+© 2026 SkillFlow — Knowledge First. Practice Hard. Mission Last.
+</footer>
+
+<script>
+const btn = document.getElementById("completeBtn");
+const end = document.getElementById("end");
+
+window.addEventListener("scroll",()=>{
+  if(end.getBoundingClientRect().top < innerHeight-100){
+    btn.classList.add("active");
+  }
+});
+
+btn.onclick=()=>{
+  if(!btn.classList.contains("active")) return;
+  localStorage.setItem("html_core_training","completed");
+  btn.innerText="Training Completed ✓";
+  setTimeout(()=>location.href="html-practice-1.html",1200);
+};
+</script>
+
+</body>
+</html>
